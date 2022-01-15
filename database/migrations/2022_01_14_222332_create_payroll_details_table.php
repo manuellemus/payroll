@@ -14,7 +14,28 @@ class CreatePayrollDetailsTable extends Migration
     public function up()
     {
         Schema::create('payroll_details', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('employee_id')->unsigned();
+            $table->bigInteger('salary_id')->unsigned();
+            $table->bigInteger('payroll_id')->unsigned();
+
+
+            $table->float('salary', 8, 2);
+            $table->float('afp', 8, 2);
+            $table->float('isss', 8, 2);
+            $table->float('renta', 8, 2);
+            $table->date('date');
+            $table->float('discount', 8, 2);
+            $table->float('bonus', 8, 2);
+            $table->text('comment')->nullable();
+            
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('salary_id')->references('id')->on('salaries');
+            $table->foreign('payroll_id')->references('id')->on('payrolls');
+
+
             $table->timestamps();
         });
     }

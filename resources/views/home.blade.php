@@ -26,7 +26,7 @@
                         <div class="card border-info text-info mb-3 col-sm-6  center">
                             <div class="card-body ">
                                 <h1 class="card-title"><i class="fa fa-briefcase"></i></h1>
-                                <a href="#" class="btn btn-info">Puesto</a>
+                                <a href="{{ route('jobs-employee.index') }}" class="btn btn-info">Puesto</a>
                             </div>
                         </div>
 
@@ -37,7 +37,7 @@
                         <div class="card border-primary text-primary mb-3 col-sm-6  ">
                             <div class="card-body ">
                                 <h1 class="card-title"><i class="fa fa-user"></i></h1>
-                                <a href="#" class="btn btn-primary">Empleados</a>
+                                <a href="{{ route('employee.index') }}" class="btn btn-primary">Empleados</a>
                             </div>
                         </div>
                         <div class="card border-success text-success mb-3 col-sm-6  center">
@@ -52,8 +52,8 @@
                         <div class="card border-warning text-warning  mb-3 col-sm-6  ">
                             <div class="card-body ">
                                 <h1 class="card-title"><i class="fa fa-paypal"></i></h1>
-                                <a href="#" class="btn btn-warning">Planilla E</a>
-                                <a href="#" class="btn btn-warning">Planilla I</a>
+                                <a href="{{ route('payroll.index') }}" class="btn btn-warning">Planilla E</a>
+                                <a href="{{ route('payroll-detail.index') }}" class="btn btn-warning">Planilla I</a>
 
                             </div>
                         </div>

@@ -14,7 +14,15 @@ class CreateSalariesTable extends Migration
     public function up()
     {
         Schema::create('salaries', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('employee_id')->unsigned();
+
+            $table->float('salary_amount', 8, 2);
+            $table->text('currency');
+            
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('employee_id')->references('id')->on('employees');
             $table->timestamps();
         });
     }

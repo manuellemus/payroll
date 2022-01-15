@@ -14,8 +14,19 @@ class CreateJobsTable extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('department_id')->unsigned();
+
+            
+            $table->string('name');
+            $table->text('description')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('department_id')->references('id')->on('departments');
             $table->timestamps();
+
+
         });
     }
 

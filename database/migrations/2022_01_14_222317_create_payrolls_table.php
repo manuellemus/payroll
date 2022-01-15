@@ -14,7 +14,14 @@ class CreatePayrollsTable extends Migration
     public function up()
     {
         Schema::create('payrolls', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+
+            $table->float('total_amount', 8, 2);
+            $table->float('total_discount', 8, 2);
+            $table->date('date');
+            
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

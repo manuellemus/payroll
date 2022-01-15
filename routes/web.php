@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('employee', 'EmployeeController')->except('show');
+Route::resource('jobs-employee', 'JobController')->except('show');
+Route::resource('payroll', 'PayrollController');
+Route::resource('payroll-detail', 'PayrollDetailController');
+
